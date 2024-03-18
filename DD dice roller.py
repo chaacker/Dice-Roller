@@ -1,31 +1,29 @@
 import random
 
-z = int(input("How many dice do you have? "))
-if z > 1:
+sides = int(input("How many dice do you have? "))
+if sides > 1:
     x = []
-    for i in range(z):
+    for i in range(sides):
         a = int(input("What is the max of this dice? "))
         x.append(a)
-elif z == 1:
+elif sides == 1:
     x = int(input("What's the max on your dice? "))
-y = 1
 
-
-answer = 'y'
-if z == 1:
+answer = "y"
+if sides == 1:
     while answer == "y" or answer == "Y":
-        roll = random.randint(y, x)
-        print("You rolled a", roll, "!")
+        roll = random.randint(1, x)
+        print(f"You rolled a {roll}!")
         if roll == 20:
                 print("Critical hit!")
         elif roll == 1:
             print("Big yikes, a blunder!")
         answer = input("Do you want to roll again? y or n: ")
-elif z > 1:
-    while answer == "y":
+elif sides > 1:
+    while answer == "y" or answer == "Y":
         die = []
         for i in x:
-            roll = random.randint(y, i)
+            roll = random.randint(1, i)
             die.append(roll)
         print("The numbers are: ", die)
         answer = input("Do you want to roll again? y or n: ")
